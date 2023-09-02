@@ -1,9 +1,12 @@
 const express = require("express")
-const sequelize = require("./backend/connection/connection")
+const cors = require('cors');
+
+const sequelize = require("./connection/connection")
 
 const userRoute = require("./route/userRoute")
 
 const app = express()
+app.use(cors())
 app.use(express.json())//for handling json data
 app.use(express.urlencoded({ extended: true }))//for handling form data 
 //it can parse data like name=John&age=30 into an object like { name: 'John', age: '30' }. It can also handle nested structure in case of true
